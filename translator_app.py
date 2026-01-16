@@ -15,9 +15,9 @@ st.set_page_config(page_title="Language Translator", layout="wide", page_icon="ð
 # ---------------- CSS Animations ----------------
 st.markdown("""
 <style>
-    /* Background Image - Global/Travel Theme */
+    /* Background Image - Plants Theme */
     .stApp {
-        background-image: url("https://images.unsplash.com/photo-1526778548025-fa2f459cd5c1?ixlib=rb-4.0.3&auto=format&fit=crop&w=1950&q=80");
+        background-image: url("https://images.unsplash.com/photo-1518531933037-91b2f5f229cc?ixlib=rb-4.0.3&auto=format&fit=crop&w=1950&q=80");
         background-size: cover;
         background-position: center;
         background-repeat: no-repeat;
