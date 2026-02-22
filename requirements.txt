@@ -1,2 +1,8 @@
+streamlit
+deep-translator
+gTTS
+streamlit-lottie
+
+requests
 
 
