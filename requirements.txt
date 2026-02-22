@@ -1,5 +1,6 @@
 streamlit
-deep-translator
-gTTS
-streamlit-lottie
+tensorflow
+pillow
 requests
+streamlit-lottie
+numpy
