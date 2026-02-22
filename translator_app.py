@@ -115,23 +115,22 @@ with col2:
     if "current_result" in st.session_state:
         res = st.session_state.current_result
         
-        # Display Lottie on success
-        if scan_anim:
-            st_lottie(scan_anim, height=150, key="success")
-            
-        st.metric(label="Detected Condition", value=res['label'])
-        st.write(f"**Confidence Level:** {res['conf']:.2%}")
-        st.progress(res['conf'])
+        # Convert to standard python float for Streamlit compatibility
+        conf_value = float(res['conf'])
         
-        # Actionable Advice
-        if res['conf'] > 0.7:
-            st.warning("🚨 **Alert:** Maintenance recommended for this sector.")
-        else:
-            st.success("✅ **Status:** Surface appears within safety parameters.")
-            
-    else:
-        st.info("Awaiting image input for analysis...")
-
+        st.metric(label="Detected Condition", value=res['label'])
+        st.write(f"**Confidence Level:** {conf_value:.2%}")
+        
+        # This is where the fix is applied
+        st.progress(float(conf_value))
+def predict_condition(image):
+    # ... preprocessing code ...
+predictions = model.predict(img_array)
+decoded = tf.keras.applications.mobilenet_v2.decode_predictions(predictions, top=1)[0][0]
+    
+# decoded[2] is the confidence score
+return decoded[1].replace("_", " ").title(), float(decoded[2])
 # ---------------- Footer ----------------
 st.markdown("---")
 st.caption("Engineered with TensorFlow & Streamlit • 2026 Edition")
+
